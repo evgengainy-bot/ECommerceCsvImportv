@@ -1,0 +1,2 @@
+sku,name,description,price,currency,category_name,stock,image_url,is_active,brand,warranty_months,model_number
+3001,Пылесос Dyson V8,Беспроводной пылесос,24990,RUB,Техника для дома,6,/images/dyson.jpg,true,,24,V8

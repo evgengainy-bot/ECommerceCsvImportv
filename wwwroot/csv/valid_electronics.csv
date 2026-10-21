@@ -1,0 +1,6 @@
+sku,name,description,price,currency,category_name,stock,image_url,is_active,brand,warranty_months,model_number
+1011,Смартфон Xiaomi Redmi 12,Смартфон 8/256 ГБ,12990,RUB,Смартфоны,8,/images/redmi12.jpg,true,Xiaomi,12,Redmi-12
+1012,Планшет Samsung Galaxy Tab A8,Планшет 10.5 дюйма,14990,RUB,Планшеты,4,/images/taba8.jpg,true,Samsung,12,SM-X200
+1013,Умные часы Xiaomi Watch S1,Смарт-часы,7990,RUB,Аксессуары,12,/images/watch.jpg,true,Xiaomi,12,Watch-S1
+1014,Powerbank TP-Link 10000mAh,Внешний аккумулятор,1990,RUB,Аксессуары,20,/images/powerbank.jpg,false,TP-Link,12,TL-PB10000
+1015,Электронная книга PocketBook 628,Ридер с подсветкой,11990,RUB,Гаджеты,7,/images/reader.jpg,true,PocketBook,12,PB628

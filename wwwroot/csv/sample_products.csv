@@ -1,0 +1,11 @@
+sku,name,description,price,currency,category_name,stock,image_url,is_active,brand,warranty_months,model_number
+1001,Ноутбук Lenovo IdeaPad 3,Бюджетный ноутбук для работы и учебы,45990,RUB,Компьютеры,5,/images/laptop.jpg,true,Lenovo,24,IdeaPad3-15
+1002,Мышь Logitech M185,Беспроводная мышь,1290,RUB,Периферия,10,/images/mouse.jpg,true,Logitech,12,M185
+1003,Клавиатура A4Tech KL-120,Мембранная клавиатура,3490,RUB,Периферия,25,/images/keyboard.jpg,false,A4Tech,12,KL-120
+1004,Монитор Dell S2421HS,Игровой монитор 24 дюйма,29990,RUB,Компьютеры,4,/images/monitor.jpg,true,Dell,24,S2421HS
+1005,Наушники HyperX Cloud II,Игровые наушники,6990,RUB,Аксессуары,8,/images/headphones.jpg,true,HyperX,24,Cloud-II
+1006,Веб-камера Logitech C270,Веб-камера для звонков,2490,RUB,Периферия,15,/images/camera.jpg,true,Logitech,12,C270
+1007,SSD Kingston A400 480GB,Твердотельный накопитель,3890,RUB,Комплектующие,30,/images/ssd.jpg,true,Kingston,36,A400
+1008,Флешка SanDisk Ultra 64GB,USB-накопитель,790,RUB,Комплектующие,50,/images/flash.jpg,false,SanDisk,24,Ultra
+1009,Роутер TP-Link Archer C6,Маршрутизатор Wi-Fi,4590,RUB,Сеть,6,/images/router.jpg,true,TP-Link,24,Archer-C6
+1010,Принтер HP DeskJet 2720,Струйное МФУ,7490,RUB,Оргтехника,3,/images/printer.jpg,true,HP,12,DeskJet-2720
