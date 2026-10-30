@@ -1,0 +1,9 @@
+namespace ECommerceCsvImport.Models
+{
+    // Ошибка импорта одной строки CSV
+    public class ImportError
+    {
+        public int RowNumber { get; set; }
+        public string Message { get; set; } = string.Empty;
+    }
+}
