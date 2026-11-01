@@ -1,0 +1,39 @@
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Список товаров";
+}
+<h1>Список товаров</h1>
+<p><a asp-controller="Products" asp-action="Import">Импортировать товары из CSV</a></p>
+
+@if (!Model.Any())
+{
+    <p>Товары не найдены. Сначала выполните импорт.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th>Артикул</th>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Категория</th>
+            <th>Остаток</th>
+            <th>Бренд</th>
+            <th>Гарантия</th>
+            <th>Активен</th>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Sku</td>
+                <td>@product.Name</td>
+                <td>@product.Price @product.Currency</td>
+                <td>@product.CategoryName</td>
+                <td>@product.StockQuantity</td>
+                <td>@product.Brand</td>
+                <td>@product.WarrantyMonths мес.</td>
+                <td>@(product.IsActive ? "Да" : "Нет")</td>
+            </tr>
+        }
+    </table>
+}
