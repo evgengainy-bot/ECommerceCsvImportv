@@ -1,7 +1,14 @@
+using ECommerceCsvImport.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// репозиторий и сервис импорта регистрируются как Singleton,
+// чтобы товары сохранялись в памяти между запросами
+builder.Services.AddSingleton<IProductRepository, InMemoryProductRepository>();
+builder.Services.AddSingleton<IProductImportService, ProductImportService>();
 
 var app = builder.Build();
 
