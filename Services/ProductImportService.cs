@@ -139,7 +139,7 @@ namespace ECommerceCsvImport.Services
                 }
 
                 // дубликат артикула пропускаем
-                if (_repository.GetAll().Any(p => p.Sku == sku))
+                if (_repository.GetBySku(sku) != null)
                 {
                     AddError(result, rowNumber, "Артикул товара уже существует");
                     continue;
