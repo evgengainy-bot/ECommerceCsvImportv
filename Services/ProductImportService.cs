@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.Linq;
 using ECommerceCsvImport.Models;
 
 namespace ECommerceCsvImport.Services
@@ -7,6 +6,10 @@ namespace ECommerceCsvImport.Services
     // Сервис импорта товаров из CSV-файла с валидацией данных
     public class ProductImportService : IProductImportService
     {
+        // границы срока гарантии в месяцах (вариант "Электроника")
+        private const int MinWarrantyMonths = 0;
+        private const int MaxWarrantyMonths = 60;
+
         private readonly IProductRepository _repository;
 
         public ProductImportService(IProductRepository repository)
@@ -132,9 +135,9 @@ namespace ECommerceCsvImport.Services
                     AddError(result, rowNumber, "Неверный формат поля warranty_months");
                     continue;
                 }
-                if (warranty < 0 || warranty > 60)
+                if (warranty < MinWarrantyMonths || warranty > MaxWarrantyMonths)
                 {
-                    AddError(result, rowNumber, "Срок гарантии должен быть от 0 до 60 месяцев");
+                    AddError(result, rowNumber, "Срок гарантии должен быть от " + MinWarrantyMonths + " до " + MaxWarrantyMonths + " месяцев");
                     continue;
                 }
 

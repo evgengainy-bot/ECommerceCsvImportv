@@ -9,6 +9,10 @@ namespace ECommerceCsvImport.Services
 
         public void Add(Product product)
         {
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
             _products.Add(product);
         }
 
