@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceCsvImport", "ECommerceCsvImport.csproj", "{F51E1D96-2C60-47A9-BC9A-47D4A4F3B8BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceCsvImport.Tests", "ECommerceCsvImport.Tests\ECommerceCsvImport.Tests.csproj", "{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{F51E1D96-2C60-47A9-BC9A-47D4A4F3B8BC}.Release|x64.Build.0 = Release|Any CPU
 		{F51E1D96-2C60-47A9-BC9A-47D4A4F3B8BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{F51E1D96-2C60-47A9-BC9A-47D4A4F3B8BC}.Release|x86.Build.0 = Release|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Debug|x64.Build.0 = Debug|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Debug|x86.Build.0 = Debug|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Release|x64.ActiveCfg = Release|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Release|x64.Build.0 = Release|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{EDC14371-DAFB-49CD-B4A3-23B89676F5E6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
