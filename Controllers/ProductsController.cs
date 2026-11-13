@@ -9,11 +9,13 @@ namespace ECommerceCsvImport.Controllers
     {
         private readonly IProductRepository _repository;
         private readonly IProductImportService _importService;
+        private readonly IWebHostEnvironment _env;
 
-        public ProductsController(IProductRepository repository, IProductImportService importService)
+        public ProductsController(IProductRepository repository, IProductImportService importService, IWebHostEnvironment env)
         {
             _repository = repository;
             _importService = importService;
+            _env = env;
         }
 
         // список товаров из памяти
@@ -30,6 +32,44 @@ namespace ECommerceCsvImport.Controllers
             return View();
         }
 
+        // приводит путь к файлу к абсолютному: убирает кавычки и лишние пробелы,
+        // ищет файл относительно папки проекта и wwwroot
+        private string ResolvePath(string filePath)
+        {
+            string path = filePath.Trim().Trim('"').Trim();
+
+            if (Path.IsPathRooted(path))
+            {
+                return path;
+            }
+
+            string candidate = Path.Combine(_env.ContentRootPath, path);
+            if (System.IO.File.Exists(candidate))
+            {
+                return candidate;
+            }
+
+            if (path.StartsWith("wwwroot", StringComparison.OrdinalIgnoreCase))
+            {
+                string relative = path.Substring(7).TrimStart('\\', '/');
+                candidate = Path.Combine(_env.WebRootPath, relative);
+                if (System.IO.File.Exists(candidate))
+                {
+                    return candidate;
+                }
+            }
+
+            return path;
+        }
+
+        // возвращает ImportResult с единственной ошибкой вместо исключения
+        private ImportResult ErrorResult(string message)
+        {
+            var result = new ImportResult();
+            result.Errors.Add(new ImportError { RowNumber = 0, Message = message });
+            return result;
+        }
+
         // запуск импорта: файл из браузера или путь к файлу на сервере
         [HttpPost]
         public ActionResult Import(IFormFile file, string filePath)
@@ -41,7 +81,16 @@ namespace ECommerceCsvImport.Controllers
                 {
                     file.CopyTo(stream);
                 }
-                ViewBag.Result = _importService.ImportFromCsv(tempPath);
+
+                try
+                {
+                    ViewBag.Result = _importService.ImportFromCsv(tempPath);
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Result = ErrorResult("Непредвиденная ошибка: " + ex.Message);
+                }
+
                 System.IO.File.Delete(tempPath);
                 return View();
             }
@@ -52,7 +101,15 @@ namespace ECommerceCsvImport.Controllers
                 return View();
             }
 
-            ViewBag.Result = _importService.ImportFromCsv(filePath);
+            try
+            {
+                ViewBag.Result = _importService.ImportFromCsv(ResolvePath(filePath));
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Result = ErrorResult("Непредвиденная ошибка: " + ex.Message);
+            }
+
             return View();
         }
     }
